@@ -1,0 +1,12 @@
+lovedaydatabase_high = (description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.ap-seoul-1.oraclecloud.com))(connect_data=(service_name=g7709006192952d_lovedaydatabase_high.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))
+
+lovedaydatabase_low = (description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.ap-seoul-1.oraclecloud.com))(connect_data=(service_name=g7709006192952d_lovedaydatabase_low.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))
+
+lovedaydatabase_medium = (description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.ap-seoul-1.oraclecloud.com))(connect_data=(service_name=g7709006192952d_lovedaydatabase_medium.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))
+
+lovedaydatabase_tp = (description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.ap-seoul-1.oraclecloud.com))(connect_data=(service_name=g7709006192952d_lovedaydatabase_tp.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))
+
+lovedaydatabase_tpurgent = (description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.ap-seoul-1.oraclecloud.com))(connect_data=(service_name=g7709006192952d_lovedaydatabase_tpurgent.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))
+
+
+
