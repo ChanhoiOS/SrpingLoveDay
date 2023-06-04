@@ -20,9 +20,13 @@ public class Posts {
     @Column(nullable = false)
     private String content;
 
+    @Column()
+    private String writer;
+
     @Builder
-    public Posts(String title, String content) {
+    public Posts(String title, String content, String writer) {
         this.title = title;
         this.content = content;
+        this.writer = writer;
     }
 }

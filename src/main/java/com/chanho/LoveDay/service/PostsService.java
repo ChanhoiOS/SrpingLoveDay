@@ -18,8 +18,17 @@ public class PostsService {
         return postsRepository.findAll();
     }
 
+    public List<Posts> findPostsByWriters(String writer, String partner) {
+        return postsRepository.findAllByWriterIn(List.of(writer, partner));
+    }
+
+    public List<Posts> findPostsByWriter(String writer) {
+        return postsRepository.findAllByWriter(writer);
+    }
+
     @Transactional
     public Long save(PostsSaveRequestDto requestDto) {
         return  postsRepository.save(requestDto.toEntity()).getId();
     }
+
 }
