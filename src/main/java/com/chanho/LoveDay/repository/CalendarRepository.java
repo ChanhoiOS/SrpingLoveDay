@@ -9,4 +9,7 @@ public interface CalendarRepository extends JpaRepository<Calendar, Long> {
 
     List<Calendar> findAllByWriterIn(List<String> writers);
     List<Calendar> findAllByWriter(String writer);
+    void deleteBySpecialDateAndWriter(String specialDate, String writer);
+
 }
+

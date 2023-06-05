@@ -30,5 +30,9 @@ public class CalendarService {
     public Long save(CalendarSaveRequestDto requestDto) {
         return  calendarRepository.save(requestDto.toEntity()).getId();
     }
+    @Transactional
+    public void deleteCalendarBySpecialDateAndWriter(String specialDate, String writer) {
+        calendarRepository.deleteBySpecialDateAndWriter(specialDate, writer);
+    }
 
 }

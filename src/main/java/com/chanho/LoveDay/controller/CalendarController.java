@@ -1,9 +1,11 @@
 package com.chanho.LoveDay.controller;
 
 import com.chanho.LoveDay.domain.Calendar;
+import com.chanho.LoveDay.dto.CalendarDeleteRequestDto;
 import com.chanho.LoveDay.dto.CalendarSaveRequestDto;
 import com.chanho.LoveDay.service.CalendarService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,5 +28,12 @@ public class CalendarController {
     @PostMapping("/api/vl/postCalendar")
     public Long save(@RequestBody CalendarSaveRequestDto requestDto) {
         return calendarService.save(requestDto);
+    }
+
+
+    @DeleteMapping("/api/vl/deleteCalendar")
+    public ResponseEntity<String> deleteCalendar(@RequestBody CalendarDeleteRequestDto requestDto) {
+        calendarService.deleteCalendarBySpecialDateAndWriter(requestDto.getSpecialDate(), requestDto.getWriter());
+        return ResponseEntity.ok("Calendar deleted successfully");
     }
 }
