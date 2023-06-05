@@ -1,10 +1,11 @@
 package com.chanho.LoveDay.controller;
 
 import com.chanho.LoveDay.domain.Posts;
+import com.chanho.LoveDay.dto.PostsDeleteRequestDto;
 import com.chanho.LoveDay.dto.PostsSaveRequestDto;
-import com.chanho.LoveDay.service.CalendarService;
 import com.chanho.LoveDay.service.PostsService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,7 +15,6 @@ import java.util.Optional;
 @RestController
 public class PostApiController {
     private final PostsService postsService;
-    private final CalendarService calendarService;
 
     @GetMapping("/api/vl/getPost")
     public List<Posts> findAll(@RequestParam("writer") String writer, @RequestParam("partner") Optional<String> partner) {
@@ -28,5 +28,11 @@ public class PostApiController {
     @PostMapping("/api/vl/posts")
     public Long save(@RequestBody PostsSaveRequestDto requestDto) {
         return postsService.save(requestDto);
+    }
+
+    @DeleteMapping("/api/vl/deletePosts")
+    public ResponseEntity<String> deleteCalendar(@RequestBody PostsDeleteRequestDto requestDto) {
+        postsService.deletePostsByTitleAndWriter(requestDto.getTitle(), requestDto.getWriter());
+        return ResponseEntity.ok("Memo deleted successfully");
     }
 }

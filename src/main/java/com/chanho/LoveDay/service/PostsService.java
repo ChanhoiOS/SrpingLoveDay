@@ -31,4 +31,9 @@ public class PostsService {
         return  postsRepository.save(requestDto.toEntity()).getId();
     }
 
+    @Transactional
+    public void deletePostsByTitleAndWriter(String title, String writer) {
+        postsRepository.deleteByTitleAndWriter(title, writer);
+    }
+
 }
