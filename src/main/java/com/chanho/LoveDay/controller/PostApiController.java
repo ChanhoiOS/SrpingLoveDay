@@ -16,7 +16,7 @@ import java.util.Optional;
 public class PostApiController {
     private final PostsService postsService;
 
-    @GetMapping("/api/vl/getPost")
+    @GetMapping("/api/memo")
     public List<Posts> findAll(@RequestParam("writer") String writer, @RequestParam("partner") Optional<String> partner) {
         if (partner.isPresent()) {
             return postsService.findPostsByWriters(writer, partner.get());
@@ -25,12 +25,12 @@ public class PostApiController {
         }
     }
 
-    @PostMapping("/api/vl/posts")
+    @PostMapping("/api/memo")
     public Long save(@RequestBody PostsSaveRequestDto requestDto) {
         return postsService.save(requestDto);
     }
 
-    @DeleteMapping("/api/vl/deletePosts")
+    @DeleteMapping("/api/memo")
     public ResponseEntity<String> deleteCalendar(@RequestBody PostsDeleteRequestDto requestDto) {
         postsService.deletePostsByTitleAndWriter(requestDto.getTitle(), requestDto.getWriter());
         return ResponseEntity.ok("Memo deleted successfully");

@@ -16,7 +16,7 @@ import java.util.Optional;
 public class CalendarController {
     private final CalendarService calendarService;
 
-    @GetMapping("/api/vl/getCalendar")
+    @GetMapping("/api/calendar")
     public List<Calendar> findAll(@RequestParam("writer") String writer, @RequestParam("partner") Optional<String> partner) {
         if (partner.isPresent()) {
             return calendarService.findPostsByWriters(writer, partner.get());
@@ -25,13 +25,13 @@ public class CalendarController {
         }
     }
 
-    @PostMapping("/api/vl/postCalendar")
+    @PostMapping("/api/calendar")
     public Long save(@RequestBody CalendarSaveRequestDto requestDto) {
         return calendarService.save(requestDto);
     }
 
 
-    @DeleteMapping("/api/vl/deleteCalendar")
+    @DeleteMapping("/api/calendar")
     public ResponseEntity<String> deleteCalendar(@RequestBody CalendarDeleteRequestDto requestDto) {
         calendarService.deleteCalendarBySpecialDateAndWriter(requestDto.getSpecialDate(), requestDto.getWriter());
         return ResponseEntity.ok("Calendar deleted successfully");
