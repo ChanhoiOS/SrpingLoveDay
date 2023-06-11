@@ -31,7 +31,7 @@ public class PostApiController {
     }
 
     @DeleteMapping("/api/memo")
-    public ResponseEntity<String> deleteCalendar(@RequestBody PostsDeleteRequestDto requestDto) {
+    public ResponseEntity<String> deleteMemo(@RequestBody PostsDeleteRequestDto requestDto) {
         postsService.deletePostsByTitleAndWriter(requestDto.getTitle(), requestDto.getWriter());
         return ResponseEntity.ok("Memo deleted successfully");
     }
