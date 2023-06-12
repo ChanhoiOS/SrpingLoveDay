@@ -3,6 +3,7 @@ package com.chanho.LoveDay.controller;
 import com.chanho.LoveDay.domain.Posts;
 import com.chanho.LoveDay.dto.PostsDeleteRequestDto;
 import com.chanho.LoveDay.dto.PostsSaveRequestDto;
+import com.chanho.LoveDay.dto.PostsUpdateRequestDto;
 import com.chanho.LoveDay.service.PostsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -34,5 +35,11 @@ public class PostApiController {
     public ResponseEntity<String> deleteMemo(@RequestBody PostsDeleteRequestDto requestDto) {
         postsService.deletePostsByTitleAndWriter(requestDto.getTitle(), requestDto.getWriter());
         return ResponseEntity.ok("Memo deleted successfully");
+    }
+
+    @PutMapping("/api/memo")
+    public ResponseEntity<Long> updateMemo(@RequestBody PostsUpdateRequestDto requestDto) {
+        Long updatedPostId = postsService.update(requestDto);
+        return ResponseEntity.ok(updatedPostId);
     }
 }

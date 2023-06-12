@@ -24,9 +24,15 @@ public class Posts {
     private String writer;
 
     @Builder
-    public Posts(String title, String content, String writer) {
+    public Posts(Long id, String title, String content, String writer) {
+        this.id = id;
         this.title = title;
         this.content = content;
         this.writer = writer;
+    }
+
+    public void update(String title, String content) {
+        this.title = title;
+        this.content = content;
     }
 }

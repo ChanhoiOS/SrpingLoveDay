@@ -2,6 +2,7 @@ package com.chanho.LoveDay.service;
 
 import com.chanho.LoveDay.domain.Posts;
 import com.chanho.LoveDay.dto.PostsSaveRequestDto;
+import com.chanho.LoveDay.dto.PostsUpdateRequestDto;
 import com.chanho.LoveDay.repository.PostsRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -34,6 +35,14 @@ public class PostsService {
     @Transactional
     public void deletePostsByTitleAndWriter(String title, String writer) {
         postsRepository.deleteByTitleAndWriter(title, writer);
+    }
+
+    @Transactional
+    public Long update(PostsUpdateRequestDto requestDto) {
+        Posts post = postsRepository.findById(requestDto.getId())
+                .orElseThrow(() -> new IllegalArgumentException("Invalid post ID: " + requestDto.getId()));
+        post.update(requestDto.getTitle(), requestDto.getContent());
+        return post.getId();
     }
 
 }
