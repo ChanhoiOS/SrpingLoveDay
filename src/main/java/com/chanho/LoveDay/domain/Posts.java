@@ -23,12 +23,16 @@ public class Posts {
     @Column()
     private String writer;
 
+    @Column()
+    private String createAt;
+
     @Builder
-    public Posts(Long id, String title, String content, String writer) {
+    public Posts(Long id, String title, String content, String writer, String createAt) {
         this.id = id;
         this.title = title;
         this.content = content;
         this.writer = writer;
+        this.createAt = createAt;
     }
 
     public void update(String title, String content) {
