@@ -17,6 +17,7 @@ import java.util.Optional;
 public class PostApiController {
     private final PostsService postsService;
 
+
     @GetMapping("/api/memo")
     public List<Posts> findAll(@RequestParam("writer") String writer, @RequestParam("partner") Optional<String> partner) {
         if (partner.isPresent()) {
