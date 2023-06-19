@@ -5,6 +5,7 @@ spring:
 
   datasource:
     #url: jdbc:oracle:thin:@lovedaydatabase_high?TNS_ADMIN=/Users/chanho/Desktop/Chanho/wallet/Wallet_LoveDayDataBase
+    #url: jdbc:oracle:thin:@lovedaydatabase_high?TNS_ADMIN=/Users/ichanho/Desktop/Chanho/wallet/Wallet_LoveDayDataBase
     url: jdbc:oracle:thin:@lovedaydatabase_high?TNS_ADMIN=/home/ec2-user/apps/SrpingLoveDay/src/main/resources/Wallet_LoveDayDataBase
     username: admin
     password: '!!Eeao01840184'

@@ -8,15 +8,15 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 public class PostsDeleteRequestDto {
-    private String title;
+    private Long id;
     private String writer;
 
-    @Builder public PostsDeleteRequestDto(String title, String writer) {
-        this.title = title;
+    @Builder public PostsDeleteRequestDto(Long id, String writer) {
+        this.id = id;
         this.writer = writer;
     }
 
     public Posts toEntity() {
-        return Posts.builder().title(title).writer(writer).build();
+        return Posts.builder().id(id).writer(writer).build();
     }
 }

@@ -34,7 +34,7 @@ public class PostApiController {
 
     @DeleteMapping("/api/memo")
     public ResponseEntity<String> deleteMemo(@RequestBody PostsDeleteRequestDto requestDto) {
-        postsService.deletePostsByTitleAndWriter(requestDto.getTitle(), requestDto.getWriter());
+        postsService.deletePostsById(requestDto.getId(), requestDto.getWriter());
         return ResponseEntity.ok("Memo deleted successfully");
     }
 

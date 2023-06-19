@@ -33,8 +33,8 @@ public class PostsService {
     }
 
     @Transactional
-    public void deletePostsByTitleAndWriter(String title, String writer) {
-        postsRepository.deleteByTitleAndWriter(title, writer);
+    public void deletePostsById(Long id, String writer) {
+        postsRepository.deletePostsByIdAndWriter(id, writer);
     }
 
     @Transactional
